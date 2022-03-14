@@ -117,7 +117,6 @@ export default function Scene({ nextFunc, _baseGeo, _geo }) {
         baseRef.current.style.pointerEvents = 'none'
         refSelectFire.current.className = 'hide'
 
-
         // musicBtn.current.style.opacity = 0.6
 
         audioList.bodyAudio.src = "./sounds/EP_52_Audio_36.mp3"
