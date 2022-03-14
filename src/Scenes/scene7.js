@@ -180,6 +180,7 @@ export default function Scene({ nextFunc, _geo, startTransition, _baseGeo }) {
         return () => {
             clearTimeout(timer1)
             currentPos = { x: -0.1, y: 0.3 }
+            eyeBlinkNumbers = []
         }
     }, [])
 
@@ -221,10 +222,15 @@ export default function Scene({ nextFunc, _geo, startTransition, _baseGeo }) {
 
             if (stepCount == 2) {
                 stopBlinkFunc(eyeBlinkNumbers[0])
-                eyeBlinkNumbers[0] = blinkFunc(eyeList[2], 10, 1500, eyeList[0])
+                eyeBlinkNumbers[0] = blinkFunc(eyeList[2], 300, 1500, eyeList[0])
 
             }
             if (stepCount == 3) {
+
+
+
+
+                console.log('hi12')
 
                 setTimeout(() => {
                     showLetterList[3].current.className = "bluehalf"
@@ -233,11 +239,15 @@ export default function Scene({ nextFunc, _geo, startTransition, _baseGeo }) {
 
                     audioList.successAudio.play();
 
+                    console.log('hi1')
+
+                    console.log(eyeBlinkNumbers)
                     stopBlinkFunc(eyeBlinkNumbers[0])
-                    eyeBlinkNumbers[0] = blinkFunc(eyeList[1], 0, 2100, eyeList[2])
+                    eyeBlinkNumbers[2] = blinkFunc(eyeList[1], 100, 2100, eyeList[2])
 
                     stopBlinkFunc(eyeBlinkNumbers[1])
-                    eyeBlinkNumbers[1] = blinkFunc(eyeList[4], 150, 2500, eyeList[5])
+                    eyeBlinkNumbers[3] = blinkFunc(eyeList[4], 100, 2500, eyeList[5])
+
                 }, 500);
 
                 setTimeout(() => {
@@ -695,7 +705,6 @@ export default function Scene({ nextFunc, _geo, startTransition, _baseGeo }) {
                     [0, 1, 2, 3].map((value) => {
                         return (
                             <BaseImage key={value}
-
                                 ref={eyeList[2][value]}
                                 scale={0.35}
                                 posInfo={{ l: 0.4, t: 0.28 }}

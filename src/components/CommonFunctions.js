@@ -29,6 +29,9 @@ export function getMaskStyle(info) {
     return maskStyle;
 }
 
+let saveRefList = []
+
+
 export function blinkFunc(refList, delay, interval, delRefList = []) {
     var currentNum = timerList.length;
     var isPlus = true;
@@ -41,9 +44,9 @@ export function blinkFunc(refList, delay, interval, delRefList = []) {
     if (refList[0].current != null)
         refList[0].current.setClass('character-appear')
 
+    saveRefList[currentNum] = refList
     timerList.push(
         setTimeout(() => {
-
             intervalList.push(
                 setInterval(() => {
                     if (innerIntervalList[currentNum] != null)
@@ -75,6 +78,7 @@ export function blinkFunc(refList, delay, interval, delRefList = []) {
             )
         }, delay)
     )
+    
     return currentNum;
 }
 
@@ -82,6 +86,10 @@ export function stopBlinkFunc(num) {
     clearInterval(intervalList[num])
     clearTimeout(timerList[num])
     clearInterval(innerIntervalList[num])
+    saveRefList[num].map(ref => {
+        if (ref.current != null)
+            ref.current.setClass('character-appear')
+    })
 }
 
 let sharePrePath = ''
@@ -124,7 +132,7 @@ export function stopRepeatAudio() {
 
     clearTimeout(repeartTimer)
     clearInterval(repeatInterval)
-    
+
 }
 
 var sourceList = [];

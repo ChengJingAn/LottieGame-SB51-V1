@@ -68,7 +68,7 @@ let backgroundSize = { width: 0, height: 0, left: 0, bottom: 0 }
 const UserContext = createContext();
 
 //remove colsoles
-console.log = function () { }
+// console.log = function () { }
 let isGameLoaded = false;
 export default function BaseShot() {
 

@@ -128,6 +128,8 @@ export default function Scene({ nextFunc, _geo, _baseGeo }) {
             clearTimeout(penguinTimer)
             setExtraVolume(audioList.bodyAudio, 1)
             currentPos = { x: 1.2, y: 0.28 }
+
+            eyeBlinkNumbers = []
         }
     }, [])
 
@@ -168,12 +170,11 @@ export default function Scene({ nextFunc, _geo, _baseGeo }) {
                 backObject.current.style.pointerEvents = 'none'
                 audioList.tingAudio.play().catch(event => { })
                 let currentNum = 0;
-                stopBlinkFunc(eyeBlinkNumbers[0])
-                setTimeout(() => {
-                    eyeList.forEach(element => {
-                        element.current.setClass('character-disappear')
-                    });
-                }, 200);
+                stopBlinkFunc(eyeBlinkNumbers[eyeBlinkNumbers.length - 1])
+
+                eyeList.forEach(element => {
+                    element.current.setClass('character-disappear')
+                });
 
                 refMarkList[varCurrentStep].current.src = "./images/SB_52_Icons/SB_52_Snow-Flake_Icon.svg"
 
@@ -184,7 +185,7 @@ export default function Scene({ nextFunc, _geo, _baseGeo }) {
                     else {
                         currentNum = 0;
                         clearInterval(timeinterval)
-                        eyeBlinkNumbers[0] = blinkFunc(eyeList, 10, 3000)
+                        eyeBlinkNumbers[eyeBlinkNumbers.length] = blinkFunc(eyeList, 450, 3000)
                     }
                     characterList[currentNum].current.setClass('character-appear')
                 }, 150);
