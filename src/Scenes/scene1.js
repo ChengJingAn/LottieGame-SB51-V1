@@ -48,21 +48,21 @@ const Scene1 = React.forwardRef(({ nextFunc, _geo, _baseGeo }, ref) => {
         useRef(),
     ]
 
-    if (isShow) {
-        introHolder.current.style.top = '-8%'
-    }
+    // if (isShow) {
+    //     introHolder.current.style.top = '-8%'
+    // }
 
     function activeFunc() {
         baseObject.current.className = 'aniObject'
         imageCount == 11
 
         timerList[0] = setTimeout(() => {
-            introHolder.current.style.top = '-8%'
-            timerList[1] = setTimeout(() => {
-                introText.current.className = 'introText'
-            }, 300);
+            // introHolder.current.style.top = '-8%'
+            // timerList[1] = setTimeout(() => {
+            //     introText.current.className = 'introText'
+            // }, 300);
 
-            setShow(true)
+            // setShow(true)
         }, 1000);
 
         timerList[2] = setTimeout(() => {
@@ -110,8 +110,8 @@ const Scene1 = React.forwardRef(({ nextFunc, _geo, _baseGeo }, ref) => {
         }, 3000);
 
         imageCount = 0;
-        introHolder.current.style.top = '-40%'
-        introHolder.current.style.left = _baseGeo.left + _baseGeo.width * 0.28 + "px"
+        // introHolder.current.style.top = '-40%'
+        // introHolder.current.style.left = _baseGeo.left + _baseGeo.width * 0.28 + "px"
 
         // playBtnRef.current.style.pointerEvents = 'none'
         // if (playBtnRef.current != null)
@@ -177,8 +177,8 @@ const Scene1 = React.forwardRef(({ nextFunc, _geo, _baseGeo }, ref) => {
                     style={{
                         position: "fixed", width: _baseGeo.width * 0.45 + "px"
                         , left: _baseGeo.left + _baseGeo.width * 0.28 + "px",
-                        top: '-40%',
-                        transition: '0.5s'
+                        top: '-8%',
+                        // transition: '0.5s'
                     }}>
                     <img draggable={false} width={"100%"}
                         onLoad={loadImage}
@@ -188,7 +188,7 @@ const Scene1 = React.forwardRef(({ nextFunc, _geo, _baseGeo }, ref) => {
 
                 <div
                     ref={introText}
-                    className='hide'
+                    // className='hide'
                     style={{
                         position: "fixed", width: _baseGeo.width * 0.26 + "px"
                         , left: _baseGeo.left + _baseGeo.width * 0.37 + "px",

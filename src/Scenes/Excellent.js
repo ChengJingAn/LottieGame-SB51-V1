@@ -81,11 +81,11 @@ export default function Scene18({ nextFunc, _geo }) {
         }, 2500);
 
         timerList[3] = setTimeout(() => {
-            audioList.backAudio.volume = 0.5;
+            audioList.backAudio.volume = 0.025;
             audioList.replayAudio.play();
 
             timerList[4] = setTimeout(() => {
-                audioList.backAudio.volume = 1;
+                audioList.backAudio.volume = 0.05;
             }, audioList.replayAudio.duration * 1000);
         }, 6000);
 
@@ -94,7 +94,7 @@ export default function Scene18({ nextFunc, _geo }) {
                 clearTimeout(timer)
             })
 
-            audioList.backAudio.volume = 1;
+            audioList.backAudio.volume = 0.05;
 
             audioList.bodyAudio.pause();
             audioList.replayAudio.pause();
